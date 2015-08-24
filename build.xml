@@ -65,10 +65,10 @@
     	</copy>
     	
     	<!--Create an empty tmp directory that will be used to save the intermediate files before 
-    		exporting them. Also copy the readme.txt to this directory as the jar task does NOT pick
+    		exporting them. Also copy the README.md to this directory as the jar task does NOT pick
     		up empty directories -->
     	<mkdir dir="${build.dir}/tmp"/>
-    	<copy file="readme.txt" todir="${build.dir}/tmp">
+    	<copy file="README.md" todir="${build.dir}/tmp">
     		
     	</copy>
     </target>
