@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	
+	<persistence-unit name="reports" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>com.anil.hibernate.entity.DomOperatorResetReason</class>
+        <class>com.anil.hibernate.entity.QuartzCronTrigger</class>
+        <class>com.anil.hibernate.entity.NetworkRequest</class>
+        <class>com.anil.hibernate.entity.ReqDomOperator</class>
+        <class>com.anil.hibernate.entity.BillingDetails</class>
+        <class>com.anil.hibernate.entity.CreditCard</class>
+        <class>com.anil.hibernate.entity.BankAccount</class>
+		
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		
+		<properties>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+	        <property name="hibernate.connection.password" value="password"/>
+	        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dbo"/>
+	        <property name="hibernate.connection.username" value="root"/>
+	        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+	        <property name="hibernate.show_sql" value="true"/>
+	        <property name="hibernate.format_sql" value="true"/>
+	        
+	        <property name="hibernate.jdbc.batch_size" value="250"/>
+	
+	        <!-- Use the C3P0 connection pool provider -->
+	        <!-- configuration pool via c3p0-->
+	        <property name="hibernate.c3p0.min_size" value="3"/>
+	        <property name="hibernate.c3p0.max_size" value="40"/>
+	        <property name="hibernate.c3p0.idle_test_period" value="60"/>
+	        <property name="hibernate.c3p0.timeout" value="600"/>
+	        <property name="hibernate.c3p0.preferredTestQuery" value="select 1;"/>
+	
+	        <property name="use_identifier_rollback" value="true"/>
+	
+	        <!-- Enable Hibernate's automatic session context management.
+	        	This will ensure that Hibernate returns the current session for the thread 
+	        	or creare new one if no session is associated with the current thread. 
+	        -->
+	        <!-- This properties should be used when you want to use session-per-request strategy for Hibernate -->
+	        <!-- 
+	        <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property> 
+	        <property name="current_session_context_class">thread</property>
+			-->
+			
+			<!-- This properties should be used when you want to use session-per-conversation strategy for Hibernate -->
+			<property name="current_session_context_class" value="managed"/>
+			
+			<!--
+			It is important that you do not override hibernate.transaction.factory_class, Hibernate Entity-
+   			Manager automatically set the appropriate transaction factory depending on the EntityManager type (ie
+			JTA versus RESOURSE_LOCAL)
+			-->
+			
+	        <!-- Disable the second-level cache  -->
+	        <property name="cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+	
+	        <property name="connection.autocommit" value="false"/>
+	
+	        <!-- Update the database schema on startup -->
+	        <property name="hbm2ddl.auto" value="update"/>	
+		</properties>
+	</persistence-unit>
+</persistence>

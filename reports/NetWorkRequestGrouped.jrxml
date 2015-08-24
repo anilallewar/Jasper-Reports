@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="Network_Request_Id" class="java.lang.Integer" isForPrompting="false">
+		<parameterDescription><![CDATA[The Network request id passed to the Report, if any]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new java.lang.Integer(1)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select n.NETWORK_REQUEST_ID,
+                n.REQTYPE_ID,
+                n.NETWORK_ID,
+                n.NETWORK_SUB_ID,
+                n.NETWORK_AGT_ID,
+                n.NETWORK_REQUEST_ACTION,
+                n.CREATED_USER,
+                n.CREATED_DATE
+            from NETWORK_REQUEST n;]]>
+	</queryString>
+	<field name="NETWORK_REQUEST_ID" class="java.lang.Long"/>
+	<field name="REQTYPE_ID" class="java.lang.Long"/>
+	<field name="NETWORK_ID" class="java.lang.String"/>
+	<field name="NETWORK_SUB_ID" class="java.lang.String"/>
+	<field name="NETWORK_AGT_ID" class="java.lang.String"/>
+	<field name="NETWORK_REQUEST_ACTION" class="java.lang.String"/>
+	<field name="CREATED_USER" class="java.lang.String"/>
+	<field name="CREATED_DATE" class="java.util.Date"/>
+	<group name="Account Group">
+		<groupExpression><![CDATA[$F{NETWORK_AGT_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="25" splitType="Stretch">
+				<staticText>
+					<reportElement mode="Opaque" x="178" y="2" width="77" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Request Type]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="83" y="2" width="95" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Network Request Id]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="332" y="2" width="71" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Sub Network Id]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="403" y="2" width="63" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Create User]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="466" y="2" width="82" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Create Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="8" y="2" width="75" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Agent Id]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="255" y="2" width="77" height="20" backcolor="#999999"/>
+					<box topPadding="2">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Network Id]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="10" splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="192" y="13" width="180" height="20"/>
+				<textElement>
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Network Request Stored in Database]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="220" y="48" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Icon">
+				<reportElement x="393" y="10" width="35" height="32"/>
+				<imageExpression class="java.lang.String"><![CDATA["MT11_32x32_B.gif"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="5" y="66" width="540" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="0" width="208" height="20"/>
+				<textElement/>
+				<text><![CDATA[Passed Network Request id is:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="234" y="0" width="194" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{Network_Request_Id}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="7" y="24" width="540" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="83" y="2" width="95" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{NETWORK_REQUEST_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="2" width="77" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{REQTYPE_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="2" width="77" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NETWORK_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="2" width="71" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NETWORK_SUB_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="2" width="75" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NETWORK_AGT_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="2" width="63" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CREATED_USER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="2" width="82" height="20"/>
+				<box topPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CREATED_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="360" y="7" width="187" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="547" y="7" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="7" width="100" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Page Footer]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

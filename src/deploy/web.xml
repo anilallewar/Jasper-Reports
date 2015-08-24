@@ -1,0 +1,102 @@
+<!DOCTYPE web-app 
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>
+		JasperReports Send Report to Browser Example
+	</display-name>
+	<description>
+		Demonstrates how to send a PDF report to a browser window.
+	</description>
+
+	<!--Filter for managing Hibernate conversation sessions START -->
+	<filter>
+        <filter-name>HibernateFilter</filter-name>
+        <filter-class>com.anil.hibernate.base.HibernateSessionConversationFilter</filter-class>
+    </filter>
+
+	<!--Only set the Hibernate filter for one URL pattern.
+		It is not possible to provide regular expressions to the web container for filtering request-->
+    <filter-mapping>
+        <filter-name>HibernateFilter</filter-name>
+        <url-pattern>/reportOutput</url-pattern>
+    </filter-mapping>
+	<!--Filter for managing Hibernate conversation sessions END -->
+	
+	<!--Filter for managing JPA EntityManager-per-request strategy START -->
+	<filter>
+        <filter-name>JPAFilter</filter-name>
+        <filter-class>com.anil.hibernate.jpa.JPARequestFilter</filter-class>
+    </filter>
+
+	<!--Only set the Hibernate filter for one URL pattern-->
+    <filter-mapping>
+        <filter-name>JPAFilter</filter-name>
+        <url-pattern>/networkRequestGroupedServlet</url-pattern>
+        <url-pattern>/networkRequestServlet</url-pattern>
+    </filter-mapping>
+	<!--Filter for managing Hibernate conversation sessions END -->
+	
+	<!-- Grouped reports created by Anil Allewar START -->
+	<servlet>
+		<servlet-name>NetworkRequestGrouped</servlet-name>
+		<servlet-class>
+			com.anil.jasper.NetworkReportGroupedServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>NetworkRequest</servlet-name>
+		<servlet-class>
+			com.anil.jasper.NetworkIdReportServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>reportOutputServlet</servlet-name>
+		<servlet-class>
+			com.anil.jasper.reportOutputServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>reportInputServlet</servlet-name>
+		<servlet-class>
+			com.anil.jasper.reportInputServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>NetworkRequestGrouped</servlet-name>
+		<url-pattern>/networkRequestGroupedServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet-mapping>
+		<servlet-name>NetworkRequest</servlet-name>
+		<url-pattern>/networkRequestServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>reportOutputServlet</servlet-name>
+		<url-pattern>/reportOutput</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>reportInputServlet</servlet-name>
+		<url-pattern>/reportInput</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Grouped reports created by Anil Allewar END -->
+	
+	<!-- This servlet is required to export images to HTML format -->
+	<servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>net.sf.jasperreports.j2ee.servlets.ImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/image</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportStylesDemo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30">
+	<style name="parentStyle" isDefault="true" fontName="Arial" fontSize="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="childStyle" isDefault="false" style="parentStyle" fontSize="9"/>
+	<detail>
+		<band height="90">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="35"/>
+				<textElement/>
+				<text><![CDATA[
+					This text uses the default report style, in this report it is called "parentStyle".
+				]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="childStyle" x="0" y="35" width="555" height="25"/>
+				<textElement/>
+				<text><![CDATA[
+					This text uses the style called "childStyle", this style inherits all the properties of it's parents, and overrides only the size.
+				]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="555" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Double"/>
+				<text><![CDATA[This text is not really important.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
